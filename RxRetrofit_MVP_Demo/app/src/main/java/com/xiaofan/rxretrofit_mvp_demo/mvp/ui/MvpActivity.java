@@ -37,13 +37,13 @@ import com.xiaofan.rxretrofit_mvp_demo.R;
               对于MVP与MVC这两种模式，它们之间也有很大的差异。有一些程序员选择不使用任何一种模式，有一部分原因也许就是不能区分这两种模式差异。以下是这两种模式之间最关键的差异：
               (参考文章：http://www.infragistics.com/community/blogs/todd_snyder/archive/2007/10/17/mvc-or-mvp-pattern-whats-the-difference.aspx)
               MVP模式：
-         View不直接与Model交互，而是通过与Presenter交互来与Model间接交互
-         Presenter与View的交互是通过接口来进行的，更有利于添加单元测试
-         通常View与Presenter是一对一的，但复杂的View可能绑定多个Presenter来处理逻辑     
+                 View不直接与Model交互，而是通过与Presenter交互来与Model间接交互
+                 Presenter与View的交互是通过接口来进行的，更有利于添加单元测试
+                 通常View与Presenter是一对一的，但复杂的View可能绑定多个Presenter来处理逻辑     
               MVC模式：
-         View可以与Model直接交互
-         Controller是基于行为的，并且可以被多个View共享
-         可以负责决定显示哪个View
+                 View可以与Model直接交互
+                 Controller是基于行为的，并且可以被多个View共享
+                 可以负责决定显示哪个View
 
  */
 public class MvpActivity extends AppCompatActivity {
