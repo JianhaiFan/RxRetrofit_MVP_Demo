@@ -105,7 +105,7 @@ public class MvpActivity extends BaseActivity implements Vlistener{
 
     @Override
     public void onNext(String s, String m) {
-        tvMsg.setText("结果消息：" + s + ",m : " + m);
+        tvMsg.setText("method: " + m + ",结果消息：" + s);
     }
 
     @Override

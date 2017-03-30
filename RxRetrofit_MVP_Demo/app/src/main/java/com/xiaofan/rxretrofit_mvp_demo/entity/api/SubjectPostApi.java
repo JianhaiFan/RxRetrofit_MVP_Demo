@@ -17,7 +17,7 @@ import rx.Observable;
 public class SubjectPostApi extends BaseApi {
     //    接口需要传入的参数 可自定义不同类型
     private boolean all;
-    /*任何你先要传递的参数*/
+    /*任何你想要传递的参数*/
 //    String xxxxx;
 //    String xxxxx;
 //    String xxxxx;
@@ -32,6 +32,8 @@ public class SubjectPostApi extends BaseApi {
     public SubjectPostApi() {
         setShowProgress(true);
         setCancel(true);
+        setCache(true);
+        setMethod("fan_cache");
     }
 
 

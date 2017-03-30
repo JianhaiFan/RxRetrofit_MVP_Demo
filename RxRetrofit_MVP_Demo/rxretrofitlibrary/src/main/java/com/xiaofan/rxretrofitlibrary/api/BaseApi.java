@@ -23,7 +23,7 @@ public abstract class BaseApi<T> implements Func1<T, String> {
     private boolean cache=false;
     /*基础url*/
     private  String baseUrl="http://www.izaodao.com/Api/";
-    /*方法-如果需要缓存必须设置这个参数；不需要不用設置*/
+    /*方法-如果需要缓存必须设置这个参数；不需要不用設置(缓存的时候必须给method赋唯一值)*/
     private String method;
     /*超时时间-默认6秒*/
     private int connectionTime = 6;

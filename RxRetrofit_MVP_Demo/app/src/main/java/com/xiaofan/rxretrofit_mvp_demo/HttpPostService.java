@@ -18,4 +18,10 @@ public interface HttpPostService {
     @POST("AppFiftyToneGraph/videoLink")
     Observable<String> getAllVedioBy(@Field("once_no") boolean once_no);
 
+    //http://192.168.1.24:9090/sysCommon/control/restful/ajaxGetVerificationCode
+//        0 = {HashMap$HashMapEntry@830049680328} "partyClient" -> "appTypeEnum_0"
+//        1 = {HashMap$HashMapEntry@830049680216} "type" -> "5006"
+//        2 = {HashMap$HashMapEntry@830049680184} "userLoginId" -> "83112345678"
+//        {"status":"2","msg":"该手机号已被注册"}
+
 }
