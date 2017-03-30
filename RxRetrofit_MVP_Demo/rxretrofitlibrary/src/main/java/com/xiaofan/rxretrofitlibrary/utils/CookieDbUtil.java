@@ -4,11 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.xiaofan.rxretrofitlibrary.RxRetrofitApp;
+import com.xiaofan.rxretrofitlibrary.download.DaoMaster;
+import com.xiaofan.rxretrofitlibrary.download.DaoSession;
 import com.xiaofan.rxretrofitlibrary.http.HttpManager;
 import com.xiaofan.rxretrofitlibrary.http.cookie.CookieResulte;
 import com.xiaofan.rxretrofitlibrary.http.cookie.CookieResulteDao;
-import com.xiaofan.rxretrofitlibrary.http.cookie.DaoMaster;
-import com.xiaofan.rxretrofitlibrary.http.cookie.DaoSession;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 

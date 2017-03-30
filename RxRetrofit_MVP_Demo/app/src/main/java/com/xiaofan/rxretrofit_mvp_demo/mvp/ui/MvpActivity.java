@@ -1,9 +1,20 @@
 package com.xiaofan.rxretrofit_mvp_demo.mvp.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.xiaofan.rxretrofit_mvp_demo.R;
+import com.xiaofan.rxretrofit_mvp_demo.activity.BaseActivity;
+import com.xiaofan.rxretrofit_mvp_demo.entity.api.SubjectPostApi;
+import com.xiaofan.rxretrofit_mvp_demo.mvp.presenter.P;
+import com.xiaofan.rxretrofit_mvp_demo.mvp.presenter.Plistener;
+import com.xiaofan.rxretrofitlibrary.exception.ApiException;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
   MVP 介绍：
@@ -46,12 +57,59 @@ import com.xiaofan.rxretrofit_mvp_demo.R;
                  可以负责决定显示哪个View
 
  */
-public class MvpActivity extends AppCompatActivity {
+public class MvpActivity extends BaseActivity implements Vlistener{
+    @BindView(R.id.tv_test)
+    TextView tvTest;
+    @BindView(R.id.tv_msg)
+    TextView tvMsg;
+
+    private Plistener plistener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mvp);
+        ButterKnife.bind(this);
+        plistener = new P(this);
 
+    }
+
+    @OnClick(value = R.id.tv_msg)
+    void onTvMsg(View v) {
+        SubjectPostApi postEntity = new SubjectPostApi();
+        postEntity.setAll(true);
+        plistener.startPost(MvpActivity.this, postEntity);
+    }
+
+    @OnClick(value = R.id.tv_test)
+    void onTvTest(View v) {
+        plistener.doTest("1");
+    }
+
+    @Override
+    public void onTestNext(String msg) {
+        tvTest.setText("返回测试结果:" + msg);
+    }
+
+    @Override
+    public void showProg() {
+        showP();
+    }
+
+    @Override
+    public void dismissProg() {
+        dismissP();
+        Log.e("tag","dismissP: == > ");
+    }
+
+    @Override
+    public void onNext(String s, String m) {
+        tvMsg.setText("结果消息：" + s + ",m : " + m);
+    }
+
+    @Override
+    public void onError(ApiException e) {
+        tvMsg.setText("发生异常了 => errorMessage:" + e.getMessage() + ",errorCode: " + e.getCode());
     }
 }
